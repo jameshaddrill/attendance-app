@@ -1,0 +1,55 @@
+{
+	"paths": {
+		"input": {
+			"root": "src",
+			"scripts": "src/scripts/",
+			"styles": "*.scss",
+			"stylesFolder": "src/styles",
+			"spriteSrc": "src/img/sprite-src",
+			"html": ["src/**/*.html", "!src/includes/**/*.html"],
+			"images": "src/images/**/*",
+			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*"],
+			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*"],
+			"img": ["src/scripts/"]
+		},
+		"output": {
+			"devRoot": "./dist",
+			"images": "dist/images",
+			"scripts": "dist/scripts",
+			"styles": "dist/styles",
+			"html": "dist/**/*.html"
+		}
+	},
+	"browserSync": {
+		"useProxy": false,
+		"proxyUrl": "localhost:8088/pantheon"
+	},
+	"lintedFiles": [
+		"/**/*.scss",
+		"!styles/main.scss",
+		"!styles/common/_spritesheet.scss",
+		"!styles/components/_components.scss",
+		"!styles/common/_base.scss",
+		"!styles/common/_mixins.scss",
+		"!styles/vendor/**/*.scss"
+	],
+	"sprite": {
+		"mode": {
+			"css": {
+				"dest": "./",
+				"sprite": "dist/img/sprites/sprites.svg",
+				"bust": false,
+				"render": {
+					"scss": {
+						"dest": "./src/styles/common/_spritesheet.scss",
+						"template": "./src/styles/vendor/_sprite-template.scss"
+					}
+				}
+			}
+		},
+		"variables": {
+			"mapname": "icons"
+		}
+	},
+	"tasksPath":"./gulp-tasks"
+}
